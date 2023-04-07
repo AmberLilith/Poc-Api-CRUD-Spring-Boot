@@ -1,4 +1,5 @@
 ## CRIANDO ESTRUTURA BÁSICA
+ ###### [(Acessar versão PDF)](https://drive.google.com/file/d/19rZvdGovsgpWWiop0Ouh2tVA_um2tUS5/view?usp=share_link)
 
 No caso do Spring Boot, podemos usar o Spring Initializr que é uma ferramenta online disponibilizada pela equipe do Spring Boot para criar o projeto com toda estrutura inicial necessária.
 
@@ -44,13 +45,13 @@ Dessa forma, vamos gerar o projeto e teremos um arquivo .zip com o projeto compa
 
 Criamos o projeto, baixamos o arquivo zip e o descompactamos.
 Agora, podemos importar na IDE e começar a trabalhar no código.
-
-
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
+
 
 ## CONFIGURANDO DEVTOOLS
 
@@ -66,11 +67,12 @@ Na opção Build, Execution, Deployment devemos caminhar até Compiler e selecio
 
 Depois vá até o final das opções em Advanced Settings e marque a opção Allow auto-make to start even if developed application is currently running.
 
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 ## CRIANDO CONTROLLER
 
@@ -91,11 +93,12 @@ public class TesteController {
 }
 
 ~~~
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 ## SUBINDO APLICAÇÃO LOCALMENTE
 
@@ -115,12 +118,12 @@ Depois de subir a aplicação a primeira vez, mais ao canto superior direito da 
 
 
 ou no de stop para derrubar.
-&nbsp;
-
-&nbsp;
-
 ___
 
+
+&nbsp;
+
+&nbsp;
 
 ## RECEBENDO DADOS DA REQUISIÇÃO
 
@@ -175,11 +178,12 @@ Onde:
 * @Valid diz ao Spring que todos os campos de DoctorDto devem ser validados (Caso seus campos tenham recebido anotações de validação. Veja aqui como implementar validações)
 
 
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 ## ADICIONANDO DEPENDÊNCIA BANCO DE DADOS (MYSQL)
 
@@ -226,11 +230,12 @@ spring.datasource.password=senha
 
 Se não tiver criado o banco ainda, acesse Criando container MYSQL para saber como fazer.
 
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 
 
@@ -320,12 +325,12 @@ Exemplo:
 Uma classe/entidade Medico tem um campo do tipo Endereco, Endereco é uma classe com seus próprios campos (Rua, número, bairro, etc), porém ela não existe no banco de dados, mas precisamos salvar o endereço direto na tabela médico.
 Então anotamos o campo da tabela Medico referente ao Endereco com @Embedded e a classe Endereco anotamos com @Embeddable.
 
-&nbsp;
-
-&nbsp;
-
 ___
 
+
+&nbsp;
+
+&nbsp;
 ## CRIADO REPOSITORY
 
 
@@ -427,11 +432,12 @@ Temos também a opção de criar digitar nossas queries usando a anotação @Que
 @Query("select s from Student s where s.s_name=?")
 List<Student> findBySName();
 ~~~~
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 ## CONFIGURANDO MIGRATIONS
 
@@ -483,11 +489,12 @@ Quando subiu e deu tudo certo, no log deve aparecer informando a versão que foi
 Na primeira subida, é criada uma tabela com nome flyway_schema_history que vai guardar as informações de versões de alterações.
 
 Se não tiver, não será rodado o mesmo script que já tinha, mas se tiver um novo, será rodado o novo script.
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 ## SUBINDO NOVA MIGRATION
 
@@ -513,12 +520,12 @@ Pode acontecer de a migration ter criado uma tabela e/ou colunas e com isso o pr
 drop database nomeDoBanco;
 create database nomeDoBanco;
 
-&nbsp;
-
-&nbsp;
-
 ___
 
+
+&nbsp;
+
+&nbsp;
 
 
 ## CRIANDO SERVICE
@@ -554,12 +561,12 @@ Onde:
 * @Transactional permite que caso durante a alteração ou inserção de dados no banco, se ocorrer algum problema, evitar que sejam persistidas alterações pela metade. Ou conclui toda a alteração, ou desfaz o que já foi feito
 
 
-&nbsp;
-
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 
 ## VALIDANDO DADOS
@@ -592,12 +599,12 @@ Lembrando que a maioria dessas anotações aceita entre parênteses preencher um
 Documentação oficial
 
 
-&nbsp;
-
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 
 
@@ -636,14 +643,12 @@ Uma resposta HTTP é composta basicamente de cabeçalho (header), status code e 
 É bom lembrar que para cada método no controller, é preciso ter um correspondente na service, pois como já dito, o controller nunca chama diretamente uma respository, ficando a cargo da service fazer isso, então a controller vai chamar a service e essa última que chama a reponsitory.
 Essa é uma boa prática que propicia o baixo acoplamento, ou seja, se precisarmos fazer mudar ao na conexão com o banco de dados, por exemplo, vamos mexer só na repository deixando o restante intacto.
 
-
-&nbsp;
-
-
-&nbsp;
-
 ___
 
+
+&nbsp;
+
+&nbsp;
 ## CRIANDO LISTAGEM (MÉTODO HTTP GET)
 ~~~
 @GetMapping
@@ -660,11 +665,12 @@ Onde:
 Essa é uma boa prática que propicia o baixo acoplamento, ou seja, se precisarmos fazer mudar ao na conexão com o banco de dados, por exemplo, vamos mexer só na repository deixando o restante intacto.
 
 
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 
 
@@ -706,11 +712,12 @@ Caso o usuário informado na requisição não exista, é lançada uma exceção
 É bom lembrar que para cada método no controller, é preciso ter um correspondente na service, pois como já dito, o controller nunca chama diretamente uma respository, ficando a cargo da service fazer isso, então a controller vai chamar a service e essa última que chama a reponsitory.
 Essa é uma boa prática que propicia o baixo acoplamento, ou seja, se precisarmos fazer mudar ao na conexão com o banco de dados, por exemplo, vamos mexer só na repository deixando o restante intacto.
 
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 ## CRIANDO ALTERAÇÃO 2 (MÉTODO HTTP PATCH)
 
@@ -727,11 +734,12 @@ Qual escolher?
 Na prática, é difícil saber qual método utilizar, pois nem sempre saberemos se um recurso será atualizado parcialmente ou totalmente em uma requisição - a não ser que realizemos uma verificação quanto a isso, algo que não é recomendado.
 
 O mais comum então nas aplicações é utilizar o método PUT para requisições de atualização de recursos em uma API.
-&nbsp;
-
-&nbsp;
-
 ___
+
+
+&nbsp;
+
+&nbsp;
 
 ## CRIANDO EXCLUSÃO (MÉTODO HTTP DELETE)
 
@@ -769,12 +777,12 @@ Optional<Doctor> doctorToDelete = repository.findById(id);
     }
 ~~~
 
-&nbsp;
-
-&nbsp;
-
 ___
 
+
+&nbsp;
+
+&nbsp;
 ## CRIANDO PAGINAÇÃO
 
 O recurso de paginação permite ao buscar todos os registros de uma tabela, podemos controlar a quantidade de registros que irá aparecer por requisição evitando assim que milhares de registros sejam exibidos de uma só vez causando problema de latência.
@@ -832,13 +840,14 @@ page=1 vai exibir a página 1, page=2 vai exibir a página 2, e assim por diante
 
 http://localhost:8080/doctors?size=1&page=1
 
-&nbsp;
-
-&nbsp;
-
 ___
 
-ORDENAÇÃO
+
+&nbsp;
+
+&nbsp;
+
+## ORDENAÇÃO
 
 
 
